@@ -9,53 +9,66 @@
 </head>
 
 <body>
-    <div id="caja1">
-        <h4>CALCULAR ÁREA Y PERÍMETRO DE UN TRIÁNGULO</h4>
-        <img src="caja1__figura" alt="triángulo" id="figura1">
-        <form action="/" id="form-caja1">
-            <label for="base">
-                <span>Base</span>
-                <input type="text" id="form-caja1__base-tri" name="base" placeholder="base del triángulo" required>
-            </label>
-            <br>
-            <label for="lado-a">
-                <span>Lado A</span>
-                <input type="text" id="form-caja1__ladoA-tri" name="lado-a" placeholder="lado a" required>
-            </label>
-            <br>
-            <label for="lado-b">
-                <span>Lado B</span>
-                <input type="text" id="form-caja1__ladoB-tri" name="lado-b" placeholder="lado b" required>
-            </label>
-            <br>
-            <label for="altura">
-                <span>Altura</span>
-                <input type="text" id="form-caja1__altura-tri" name="altura" placeholder="altura del triángulo"
-                    required>
-            </label>
-            <button id="form-caja1__button" type="button">Calcular</button>
-        </form>
-        <div class="caja1__resultados">
-            <span>PERÍMETRO</span>
-            <p>Resul</p>
-            <span>ÁREA</span>
-            <p>Resul</p>
+    <section class="contenido">
+        <div class="contenedor" id="caja1">
+            <p class="contenedor__title">CALCULAR ÁREA Y PERÍMETRO DE UN TRIÁNGULO</p>
+            <div class="contenedor1">
+                <img class="img" src="./assets/triangulo.png" alt="triángulo" id="figura1">
+                <form action="/" id="form-caja1">
+                    <label for="form-caja1__base-tri">
+                        <span><b>Base</b></span>
+                        <input type="number" id="form-caja1__base-tri" name="base" placeholder="base" required>
+                    </label>
+                    <br>
+                    <label for="form-caja1__ladoA-tri">
+                        <span><b>Lado A</b></span>
+                        <input type="number" id="form-caja1__ladoA-tri" name="lado-a" placeholder="lado a" required>
+                    </label>
+                    <br>
+                    <label for="form-caja1__ladoB-tri">
+                        <span><b>Lado B</b></span>
+                        <input type="number" id="form-caja1__ladoB-tri" name="lado-b" placeholder="lado b" required>
+                    </label>
+                    <br>
+                    <label for="form-caja1__altura-tri">
+                        <span><b>Altura</b></span>
+                        <input type="number" id="form-caja1__altura-tri" name="altura" placeholder="altura" required>
+                    </label>
+                    <button class="btn" id="form-caja1__button" type="button">Calcular</button>
+                </form>
+            </div>
+            <div class="contenedor2">
+                <p class="contenedor2__resultado"><b>PERÍMETRO:</b> <span class="contenedor2__span"
+                        id="perimetro-tri"></span></p>
+                <p class="contenedor2__resultado"><b>ÁREA:</b> <span class="contenedor2__span" id="area-tri"></span></p>
+            </div>
         </div>
-    </div>
 
-    <div id="caja2">
-        <img src="" alt="" id="figura2">
-
-    </div>
-
-    <div id="caja3">
-        <img src="" alt="" id="figura3">
-
-    </div>
-
-    <div id="caja4">
-        <img src="" alt="" id="figura4">
-    </div>
+        <div class="contenedor" id="caja2">
+            <p class="contenedor__title">CALCULAR ÁREA Y PERÍMETRO DE UN RECTÁNGULO</p>
+            <div class="contenedor1">
+                <img class="img" src="./assets/rectangulo.png" alt="rectángulo" id="figura2">
+                <form action="/" id="form-caja2">
+                    <label for="form-caja2__base-rect">
+                        <span><b>Base</b></span>
+                        <input type="number" id="form-caja2__base-rect" name="base" placeholder="base" required>
+                    </label>
+                    <br>
+                    <label for="form-caja2__ladoA-rect">
+                        <span><b>Altura</b></span>
+                        <input type="number" id="form-caja2__ladoA-rect" name="altura" placeholder="altura" required>
+                    </label>
+                    <button class="btn" id="form-caja2__button" type="button">Calcular</button>
+                </form>
+            </div>
+            <div class="contenedor2">
+                <p class="contenedor2__resultado"><b>PERÍMETRO:</b> <span class="contenedor2__span"
+                        id="perimetro-rect"></span></p>
+                <p class="contenedor2__resultado"><b>ÁREA:</b> <span class="contenedor2__span" id="area-rect"></span>
+                </p>
+            </div>
+        </div>
+    </section>
 </body>
 <script src="./main.js"></script>
 
