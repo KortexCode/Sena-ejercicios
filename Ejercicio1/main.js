@@ -3,10 +3,12 @@ const elementId = (id) => document.getElementById(id);
 /*BOTONES*/
 const btnTriangulo = elementId("form-caja1__button");
 const btnRectangulo = elementId("form-caja2__button");
+const btnCuadrado = elementId("form-caja3__button");
 
 /*EVENTOS*/
 btnTriangulo.addEventListener("click", calcularTriangulo);
 btnRectangulo.addEventListener("click", calcularRectangulo);
+btnCuadrado.addEventListener("click", calcularCuadrado);
 
 function calcularTriangulo() {
   /*FORMUARIOS */
@@ -35,4 +37,16 @@ function calcularRectangulo() {
 
   resultPerimetro.textContent = `${(altura + base) * 2} metros`;
   resultArea.textContent = `${base * altura} metros cuadrados`;
+}
+function calcularCuadrado() {
+  /*FORMUARIOS */
+  const formCuadrado = elementId("form-caja3");
+  const resultPerimetro = elementId("perimetro-cuadra");
+  const resultArea = elementId("area-cuadra");
+
+  const form = new FormData(formCuadrado);
+  const lado = parseFloat(form.get("lado"));
+
+  resultPerimetro.textContent = `${lado * 4} metros`;
+  resultArea.textContent = `${lado ** 2} metros cuadrados`;
 }

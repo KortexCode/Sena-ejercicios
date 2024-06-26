@@ -10,8 +10,9 @@
 
 <body>
     <section class="contenido">
+        <!-- INTERFAZ DEL TRIÁNGULO-->
         <div class="contenedor" id="caja1">
-            <p class="contenedor__title">CALCULAR ÁREA Y PERÍMETRO DE UN TRIÁNGULO</p>
+            <p class="contenedor__title"><b>CALCULAR ÁREA Y PERÍMETRO DE UN TRIÁNGULO</b></p>
             <div class="contenedor1">
                 <img class="img" src="./assets/triangulo.png" alt="triángulo" id="figura1">
                 <form action="/" id="form-caja1">
@@ -43,9 +44,9 @@
                 <p class="contenedor2__resultado"><b>ÁREA:</b> <span class="contenedor2__span" id="area-tri"></span></p>
             </div>
         </div>
-
+        <!-- INTERFAZ DEL RECTÁNGULO-->
         <div class="contenedor" id="caja2">
-            <p class="contenedor__title">CALCULAR ÁREA Y PERÍMETRO DE UN RECTÁNGULO</p>
+            <p class="contenedor__title"><b>CALCULAR ÁREA Y PERÍMETRO DE UN RECTÁNGULO</b></p>
             <div class="contenedor1">
                 <img class="img" src="./assets/rectangulo.png" alt="rectángulo" id="figura2">
                 <form action="/" id="form-caja2">
@@ -65,6 +66,27 @@
                 <p class="contenedor2__resultado"><b>PERÍMETRO:</b> <span class="contenedor2__span"
                         id="perimetro-rect"></span></p>
                 <p class="contenedor2__resultado"><b>ÁREA:</b> <span class="contenedor2__span" id="area-rect"></span>
+                </p>
+            </div>
+        </div>
+        <!-- INTERFAZ DEL CUADRADO-->
+        <div class="contenedor" id="caja3">
+            <p class="contenedor__title"><b>CALCULAR ÁREA Y PERÍMETRO DE UN CUADRADO</b></p>
+            <div class="contenedor1">
+                <img class="img" src="./assets/cuadrado.png" alt="cuadrado" id="figura3">
+                <form action="/" id="form-caja3">
+                    <label for="form-caja3__lado-cuadra">
+                        <span><b>Lado</b></span>
+                        <input type="number" id="form-caja3__lado-cuadra" name="lado" placeholder="lado" required>
+                    </label>
+                    <br>
+                    <button class="btn" id="form-caja3__button" type="button">Calcular</button>
+                </form>
+            </div>
+            <div class="contenedor2">
+                <p class="contenedor2__resultado"><b>PERÍMETRO:</b> <span class="contenedor2__span"
+                        id="perimetro-cuadra"></span></p>
+                <p class="contenedor2__resultado"><b>ÁREA:</b> <span class="contenedor2__span" id="area-cuadra"></span>
                 </p>
             </div>
         </div>
