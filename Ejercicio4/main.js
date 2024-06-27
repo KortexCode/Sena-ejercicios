@@ -59,11 +59,9 @@ function guardarEncuestado({
   correo,
   ciudad,
   ciudadOrigen,
-  canciones: [
-    { nombreCancion1, nombreArtista1 },
-    { nombreCancion2, nombreArtista2 },
-    { nombreCancion3, nombreArtista3 },
-  ],
+  cancion1: { nombreCancion1, nombreArtista1 },
+  cancion2: { nombreCancion2, nombreArtista2 },
+  cancion3: { nombreCancion3, nombreArtista3 },
 }) {
   const encuestado = {
     nombre,
@@ -72,11 +70,9 @@ function guardarEncuestado({
     correo,
     ciudad,
     ciudadOrigen,
-    canciones: [
-      { nombreCancion1, nombreArtista1 },
-      { nombreCancion2, nombreArtista2 },
-      { nombreCancion3, nombreArtista3 },
-    ],
+    cancion1: { nombreCancion1, nombreArtista1 },
+    cancion2: { nombreCancion2, nombreArtista2 },
+    cancion3: { nombreCancion3, nombreArtista3 },
   };
   return encuestado;
 }
@@ -109,12 +105,15 @@ function ingresarDatosDeEncuestado() {
       correo,
       ciudad,
       ciudadOrigen,
-      canciones: [
-        { nombreCancion1, nombreArtista1 },
-        { nombreCancion2, nombreArtista2 },
-        { nombreCancion3, nombreArtista3 },
-      ],
+      cancion1: { nombreCancion1, nombreArtista1 },
+      cancion2: { nombreCancion2, nombreArtista2 },
+      cancion3: { nombreCancion3, nombreArtista3 },
     });
+    if (listaEncuestados.length === 6) {
+      btnFormulario.disabled = true;
+      alert("No puedes registrar más de 6 personas");
+      return;
+    }
     listaEncuestados.push(encuestado);
     agregarASeleccionador(listaEncuestados);
     alert("Ingreso Exitoso");
@@ -124,7 +123,10 @@ function ingresarDatosDeEncuestado() {
 }
 function agregarASeleccionador(listaE) {
   const selector = elementId("selector-encuestado");
+  selector.addEventListener("change", MostrarDatosDeEncuestado);
+  const optionVacio = document.createElement("option"); //option vacía
   const fragment = new DocumentFragment();
+  fragment.append(optionVacio); //Agregamos la opción vacía
   selector.innerText = "";
   for (let index = 0; index < listaE.length; index++) {
     const option = document.createElement("option");
@@ -134,4 +136,50 @@ function agregarASeleccionador(listaE) {
     selector.append(fragment);
   }
 }
-function MostrarDatosDeEncuestado() {}
+function MostrarDatosDeEncuestado() {
+  console.log("ACTIVADO");
+  let numCancion = 1;
+  const selector = elementId("selector-encuestado");
+  const listaParrafos = document.getElementsByClassName(
+    "mostrar-datos__encuestado"
+  );
+  const listaParrafosCanciones = document.getElementsByClassName(
+    "mostrar-datos__encuestado-canciones"
+  );
+  const newListaParrafos = [...listaParrafos];
+  const newListaParrafosCanciones = [...listaParrafosCanciones];
+
+  const indiceSelector = selector.selectedIndex;
+  const nombreEncuestado = selector.options[indiceSelector].text;
+
+  const encuestadoFiltrado = listaEncuestados.filter(
+    (item) => item.nombre === nombreEncuestado
+  );
+  const encuestado = encuestadoFiltrado[0];
+
+  if (!encuestado) {
+    const todosLosParrafos = document.querySelectorAll(
+      ".mostrar-datos__contenedor-informacion p"
+    );
+    const newTodosLosParrafos = [...todosLosParrafos];
+    for (const p of newTodosLosParrafos) {
+      p.textContent = "....";
+    }
+    return;
+  }
+  const valoresObjetoEncuestado = Object.values(encuestado);
+
+  for (let index = 0; index < 6; index++) {
+    const parrafo = newListaParrafos[index];
+    parrafo.textContent = valoresObjetoEncuestado[index];
+  }
+
+  for (let index = 6; index < 9; index++) {
+    const parrafoCanciones = newListaParrafosCanciones[index - 6];
+
+    parrafoCanciones.textContent = `${
+      valoresObjetoEncuestado[index]["nombreCancion" + numCancion]
+    } - ${valoresObjetoEncuestado[index]["nombreArtista" + numCancion]}`;
+    numCancion += 1;
+  }
+}
