@@ -15,15 +15,15 @@
 </head>
 
 <body>
-    <section class="menu">
-        <div id="menu_agregar" class="menu__opcion1">
-            <P>AGREGAR UN ENCUESTADO</P>
-        </div>
-        <div id="menu_buscar" class="menu__opcion1">
-            <P>BUSCAR INFORMACIÓN DE UN ENCUESTADO</P>
+    <!-- MENU -->
+    <section class="menu" id="menu-id">
+        <div class="menu__contendor-botones">
+            <buttonid id="menu__opcion1-id" class="menu__opcion1">AGREGAR UN ENCUESTADO</buttonid>
+            <button id="menu__opcion2-id" class="menu__opcion2">BUSCAR INFORMACIÓN DE UN ENCUESTADO</button>
         </div>
     </section>
-    <section class="ingreso-datos">
+    <!-- INTERFAZ PARA INGRESO DE DATOS -->
+    <section class="ingreso-datos" id="interfazAgregar">
         <div class="contenedor">
             <form action="/" id="form" class="formulario">
                 <label for="nombre">
@@ -93,12 +93,13 @@
             </form>
         </div>
     </section>
-    <section class="mostrar-datos">
+    <!-- INTERFAZ PARA MOSTRAR DATOS -->
+    <section class="mostrar-datos" id="interfazMostrar">
         <div class="mostrar-datos__seleccionadores">
             <select name="selector" id="selector-encuestado" class="mostrar-datos__selector">
-                <option value="JavaScript">Encuestado</option>
+                <option value="Encuestado0">Encuestado</option>
             </select>
-            <button class="mostrar-datos__boton">Volver</button>
+            <button class="mostrar-datos__boton-volver" id="btn-volver">Volver</button>
         </div>
         <div class="mostrar-datos__informacion">
             <h3>INFORMACIÓN DEL ENCUESTADO SELECCIONADO</h3>

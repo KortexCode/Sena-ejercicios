@@ -1,18 +1,57 @@
 /*Función para obtener elementos del dom por ID*/
 const elementId = (id) => document.getElementById(id);
 
+/*ELEMENTOS DEL DOM */
+
 /*BOTONES DEL FORMULARIO*/
 const btnFormulario = elementId("btn-form");
-/* const btnRectangulo = elementId("form-caja2__button"); */
+const btnOpcion1 = elementId("menu__opcion1-id");
+const btnOpcion2 = elementId("menu__opcion2-id");
+const botonVolverInterfazMostrarEncuestado = elementId("btn-volver");
+const botonVolverInterfazAgregarEncuestado = elementId("btn-form-volver");
 
 /*EVENTOS*/
 btnFormulario.addEventListener("click", ingresarDatosDeEncuestado);
-/* btnRectangulo.addEventListener("click", calcularRectangulo); */
+btnOpcion1.addEventListener("click", openMenuAgregar);
+btnOpcion2.addEventListener("click", openMenuConsultar);
+botonVolverInterfazAgregarEncuestado.addEventListener(
+  "click",
+  cerrarMenuAgregar
+);
+botonVolverInterfazMostrarEncuestado.addEventListener(
+  "click",
+  cerrarMenuConsultar
+);
 
 /*DECLARACIÓN DE VARIABLES*/
 let listaEncuestados = [];
 
 /*LÓGICA PAR CALCULAR ÁREAS Y PERÍMETROS DE LAS FIGURAS*/
+function openMenuAgregar() {
+  const interfazAgregarEcuestado = elementId("interfazAgregar");
+  const interfazMenu = elementId("menu-id");
+  interfazAgregarEcuestado.classList.add("abrir-menu-ingreso-datos");
+  interfazMenu.classList.add("cerrar-menu");
+}
+function openMenuConsultar() {
+  const interfazMostrarEcuestado = elementId("interfazMostrar");
+  const interfazMenu = elementId("menu-id");
+  interfazMostrarEcuestado.classList.add("abrir-menu-mostrar-datos");
+  interfazMenu.classList.add("cerrar-menu");
+}
+function cerrarMenuAgregar() {
+  const interfazMostrarEcuestado = elementId("interfazAgregar");
+  const interfazMenu = elementId("menu-id");
+  interfazMostrarEcuestado.classList.remove("abrir-menu-ingreso-datos");
+  interfazMenu.classList.remove("cerrar-menu");
+}
+function cerrarMenuConsultar() {
+  const interfazMostrarEcuestado = elementId("interfazMostrar");
+  const interfazMenu = elementId("menu-id");
+  interfazMostrarEcuestado.classList.remove("abrir-menu-mostrar-datos");
+  interfazMenu.classList.remove("cerrar-menu");
+}
+
 function guardarEncuestado({
   nombre,
   id,
@@ -77,8 +116,22 @@ function ingresarDatosDeEncuestado() {
       ],
     });
     listaEncuestados.push(encuestado);
+    agregarASeleccionador(listaEncuestados);
     alert("Ingreso Exitoso");
   } else {
     form.reportValidity();
   }
 }
+function agregarASeleccionador(listaE) {
+  const selector = elementId("selector-encuestado");
+  const fragment = new DocumentFragment();
+  selector.innerText = "";
+  for (let index = 0; index < listaE.length; index++) {
+    const option = document.createElement("option");
+    option.value = listaE[index].id;
+    option.textContent = listaE[index].nombre;
+    fragment.appendChild(option);
+    selector.append(fragment);
+  }
+}
+function MostrarDatosDeEncuestado() {}

@@ -22,14 +22,42 @@ body {
 }
 /* ESTILOS PARA EL MENU */
 .menu {
-    display: none;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.menu__contendor-botones{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: rgb(214, 198, 198);
+}
+.menu__opcion1 {
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background-color: rgb(107, 235, 252);
+    font-size: var(--ms);
+    font-weight: bold;
+}
+.menu__opcion2 {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: rgb(149, 75, 219);
+    font-size: var(--ms);
+    font-weight: bold;
 }
 /* ESTILOS PARA LA OPCIÓN DE FORMULARIO DE ENCUESTA */
 .ingreso-datos {
     display: none;
     width: 100%;
     height: 100%;
-    /* display: flex; */
     justify-content: center;
     font-size: var(--ms);
     background-color: rgb(107, 235, 252);
@@ -98,9 +126,9 @@ span {
 }
 /* ESTILOS PARA LA OPCIÓN DE BÚSQUEDA DE ENCUESTADO */
 .mostrar-datos {
+    display: none;
     width: 100%;
     height: 100%;
-    display: grid;
     grid-template-rows: 10% 85%;
     background-color: rgb(149, 75, 219);
     
@@ -144,4 +172,14 @@ span {
     font-size: var(--ms);
     display: inline-block;
     
+}
+/* CAMBIOS DE ESTADO */
+.cerrar-menu {
+    display: none;
+}
+.abrir-menu-ingreso-datos {
+    display: flex;
+}
+.abrir-menu-mostrar-datos {
+    display: grid;
 }
