@@ -4,29 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
     <title>Ejercicio 5</title>
 </head>
 
 <body>
+    <section class="menu">
+        <div id="menu_agregar" class="menu__opcion1">
+            <P>AGREGAR UN ENCUESTADO</P>
+        </div>
+        <div id="menu_buscar" class="menu__opcion1">
+            <P>BUSCAR INFORMACIÓN DE UN ENCUESTADO</P>
+        </div>
+    </section>
     <section class="ingreso-datos">
         <div class="contenedor">
-            <form action="/" id="form">
+            <form action="/" id="form" class="formulario">
                 <label for="nombre">
                     <span><b>Nombre</b></span>
                     <input type="text" id="nombre" name="nombre" placeholder="nombre" required>
                 </label>
-                <br>
                 <label for="id">
                     <span><b>Número De Identificación</b></span>
                     <input type="number" id="id" name="id" placeholder="N# identificación" required>
                 </label>
-                <br>
                 <label for="fecha">
                     <span><b>Fecha De Nacimiento</b></span>
                     <input type="date" id="fecha" name="fecha" placeholder="fecha de nacimiento" required>
                 </label>
-                <br>
                 <label for="correo">
                     <span><b>Correo Electrónico</b></span>
                     <input type="text" id="correo" name="correo" placeholder="correo electrónico" required>
@@ -36,16 +47,81 @@
                     <input type="text" id="ciudad" name="ciudad" placeholder="ciudad de residencia" required>
                 </label>
                 <label for="ciudad-origen">
-                    <span><b>Cidudad de Origen</b></span>
+                    <span><b>Ciudad de Origen</b></span>
                     <input type="text" id="ciudad-origen" name="ciudad-origen" placeholder="ciudad de origen" required>
                 </label>
-                <span>Los campos con * son obligatorios</span>
-                <button class="btn" id="btn-form" type="button">Ingresar</button>
+                <div class="contenedor__canciones">
+                    <p class="contenedor__cancion-titulo"><b>Canción 1</b></p>
+                    <div class="contenedor__cancion">
+                        <label for="cancion1">
+                            <span><b>Título</b></span>
+                            <input type="text" id="cancion1" name="cancion1" placeholder="título" required>
+                        </label>
+                        <label for="artista1">
+                            <span><b>Artista</b></span>
+                            <input type="text" id="artista1" name="artista1" placeholder="artista" required>
+                        </label>
+                    </div>
+                    <p class="contenedor__cancion-titulo"><b>Canción 2</b></p>
+                    <div class="contenedor__cancion">
+                        <label for="cancion2">
+                            <span><b>Título</b></span>
+                            <input type="text" id="cancion2" name="cancion2" placeholder="Título" required>
+                        </label>
+                        <label for="artista2">
+                            <span><b>Artista</b></span>
+                            <input type="text" id="artista2" name="artista2" placeholder="Artista" required>
+                        </label>
+                    </div>
+                    <p class="contenedor__cancion-titulo"><b>Canción 3</b></p>
+                    <div class="contenedor__cancion">
+                        <label for="cancion3">
+                            <span><b>Título</b></span>
+                            <input type="text" id="cancion3" name="cancion3" placeholder="Título" required>
+                        </label>
+                        <label for="artista3">
+                            <span><b>Artista</b></span>
+                            <input type="text" id="artista3" name="artista3" placeholder="Artista" required>
+                        </label>
+                    </div>
+                </div>
+                <p class="contendor__regla">Los campos con * son obligatorios</p>
+                <div>
+                    <button class="btn" id="btn-form" type="button">Ingresar</button>
+                    <button class="btn" id="btn-form-volver" type="button">Volver</button>
+                </div>
             </form>
         </div>
     </section>
     <section class="mostrar-datos">
+        <div class="mostrar-datos__seleccionadores">
+            <select name="selector" id="selector-encuestado" class="mostrar-datos__selector">
+                <option value="JavaScript">Encuestado</option>
+            </select>
+            <button class="mostrar-datos__boton">Volver</button>
+        </div>
+        <div class="mostrar-datos__informacion">
+            <h3>INFORMACIÓN DEL ENCUESTADO SELECCIONADO</h3>
+            <div class="mostrar-datos__contenedor-informacion">
+                <span>Nombre:</span>
+                <p>....</p>
+                <span>Número de identificación:</span>
+                <p>....</p>
+                <span>Fecha de nacimiento:</span>
+                <p>....</p>
+                <span>Ciudad de residencia:</span>
+                <p>....</p>
+                <span>Ciudad de origen:</span>
+                <p>....</p>
+                <span>Canción 1:</span>
+                <p>....</p>
+                <span>Canción 2:</span>
+                <p>....</p>
+                <span>Canción 3:</span>
+                <p>...</p>
 
+            </div>
+        </div>
     </section>
 </body>
 <script src="./main.js"></script>

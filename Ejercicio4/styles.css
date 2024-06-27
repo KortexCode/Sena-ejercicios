@@ -1,0 +1,147 @@
+:root {
+   
+    /*font-sizes*/
+    --s:1.2rem;
+    --sm:1.4rem;
+    --ms:1.6rem;
+    --mm:1.8rem;
+    --hm:2.4rem;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html { 
+    font-size: 62.5%;
+}
+body {
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+}
+/* ESTILOS PARA EL MENU */
+.menu {
+    display: none;
+}
+/* ESTILOS PARA LA OPCIÓN DE FORMULARIO DE ENCUESTA */
+.ingreso-datos {
+    display: none;
+    width: 100%;
+    height: 100%;
+    /* display: flex; */
+    justify-content: center;
+    font-size: var(--ms);
+    background-color: rgb(107, 235, 252);
+}
+.contenedor {
+    margin-left: 14px;
+    margin-bottom: 12px;
+}
+.contenedor .formulario span::before {
+    content: "*";
+}
+.contenedor .formulario label{
+    margin-top: 8px;
+}
+.contenedor .contenedor__cancion label{
+    margin-top: 0;
+}
+.contenedor__cancion-titulo {
+    margin-top: 8px;
+}
+.contenedor__title {
+    margin-bottom: 8px;
+    font-size: var(--ms);
+}
+.contenedor__canciones {
+    display: flex;
+    flex-direction: column;
+}
+.contenedor__cancion {
+    display: flex;
+}
+.contenedor__cancion > label {
+    margin-right: 8px;
+}
+.contenedor__cancion-titulo  {
+    font-size: var(--sm);
+    color: rgb(1, 11, 69);
+}
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: var(--sm);
+}
+input {
+    font-size: var(--s);
+}
+span {
+    color: rgb(29, 53, 92);
+}
+.contendor__regla {
+    margin-top: 4px;
+}
+.btn {
+    padding: 4px;
+    margin-top: 8px;
+    border: solid 0.5px;
+    border-radius: 8px;
+    font-weight: 400;
+    background-color: rgb(33, 33, 193);
+    color: white;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: rgb(59, 59, 108);
+}
+/* ESTILOS PARA LA OPCIÓN DE BÚSQUEDA DE ENCUESTADO */
+.mostrar-datos {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10% 85%;
+    background-color: rgb(149, 75, 219);
+    
+}
+.mostrar-datos__selector {
+    padding: 4px;
+    margin-left: 12px;
+}
+
+.mostrar-datos__informacion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+.mostrar-datos__contenedor-informacion {
+    margin-left: 12px;
+
+}
+.mostrar-datos__seleccionadores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mostrar-datos__seleccionadores button{
+    align-self: center;
+    padding: 8px;
+    margin-right: 12px;
+}
+.mostrar-datos__informacion h3{
+    margin-top: 10px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: var(--hm);
+    
+}
+.mostrar-datos__informacion span{
+    margin-top: 8px;
+    font-size: var(--ms);
+    display: inline-block;
+    
+}

@@ -20,6 +20,11 @@ function guardarEncuestado({
   correo,
   ciudad,
   ciudadOrigen,
+  canciones: [
+    { nombreCancion1, nombreArtista1 },
+    { nombreCancion2, nombreArtista2 },
+    { nombreCancion3, nombreArtista3 },
+  ],
 }) {
   const encuestado = {
     nombre,
@@ -28,6 +33,11 @@ function guardarEncuestado({
     correo,
     ciudad,
     ciudadOrigen,
+    canciones: [
+      { nombreCancion1, nombreArtista1 },
+      { nombreCancion2, nombreArtista2 },
+      { nombreCancion3, nombreArtista3 },
+    ],
   };
   return encuestado;
 }
@@ -45,6 +55,12 @@ function ingresarDatosDeEncuestado() {
   const correo = formEncuesta.get("correo");
   const ciudad = formEncuesta.get("ciudad");
   const ciudadOrigen = formEncuesta.get("ciudad-origen");
+  const nombreCancion1 = formEncuesta.get("cancion1");
+  const nombreArtista1 = formEncuesta.get("artista1");
+  const nombreCancion2 = formEncuesta.get("cancion2");
+  const nombreArtista2 = formEncuesta.get("artista2");
+  const nombreCancion3 = formEncuesta.get("cancion3");
+  const nombreArtista3 = formEncuesta.get("artista3");
 
   if (form.checkValidity()) {
     const encuestado = guardarEncuestado({
@@ -54,9 +70,14 @@ function ingresarDatosDeEncuestado() {
       correo,
       ciudad,
       ciudadOrigen,
+      canciones: [
+        { nombreCancion1, nombreArtista1 },
+        { nombreCancion2, nombreArtista2 },
+        { nombreCancion3, nombreArtista3 },
+      ],
     });
     listaEncuestados.push(encuestado);
-    console.log(listaEncuestados);
+    alert("Ingreso Exitoso");
   } else {
     form.reportValidity();
   }
