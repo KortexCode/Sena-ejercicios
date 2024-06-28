@@ -59,9 +59,9 @@ function guardarEncuestado({
   correo,
   ciudad,
   ciudadOrigen,
-  cancion1: { nombreCancion1, nombreArtista1 },
-  cancion2: { nombreCancion2, nombreArtista2 },
-  cancion3: { nombreCancion3, nombreArtista3 },
+  cancion1,
+  cancion2,
+  cancion3,
 }) {
   const encuestado = {
     nombre,
@@ -70,9 +70,9 @@ function guardarEncuestado({
     correo,
     ciudad,
     ciudadOrigen,
-    cancion1: { nombreCancion1, nombreArtista1 },
-    cancion2: { nombreCancion2, nombreArtista2 },
-    cancion3: { nombreCancion3, nombreArtista3 },
+    cancion1,
+    cancion2,
+    cancion3,
   };
   return encuestado;
 }
@@ -105,9 +105,9 @@ function ingresarDatosDeEncuestado() {
       correo,
       ciudad,
       ciudadOrigen,
-      cancion1: { nombreCancion1, nombreArtista1 },
-      cancion2: { nombreCancion2, nombreArtista2 },
-      cancion3: { nombreCancion3, nombreArtista3 },
+      cancion1: `${nombreCancion1} - ${nombreArtista1}`,
+      cancion2: `${nombreCancion2} - ${nombreArtista2}`,
+      cancion3: `${nombreCancion3} - ${nombreArtista3}`,
     });
     if (listaEncuestados.length === 6) {
       btnFormulario.disabled = true;
@@ -138,24 +138,22 @@ function agregarASeleccionador(listaE) {
 }
 function MostrarDatosDeEncuestado() {
   console.log("ACTIVADO");
-  let numCancion = 1;
+
   const selector = elementId("selector-encuestado");
   const listaParrafos = document.getElementsByClassName(
     "mostrar-datos__encuestado"
   );
-  const listaParrafosCanciones = document.getElementsByClassName(
-    "mostrar-datos__encuestado-canciones"
-  );
+
   const newListaParrafos = [...listaParrafos];
-  const newListaParrafosCanciones = [...listaParrafosCanciones];
 
   const indiceSelector = selector.selectedIndex;
-  const nombreEncuestado = selector.options[indiceSelector].text;
-
+  const idEncuestado = selector.options[indiceSelector].value;
+  console.log("valor del selector", idEncuestado);
   const encuestadoFiltrado = listaEncuestados.filter(
-    (item) => item.nombre === nombreEncuestado
+    (item) => item.id === parseFloat(idEncuestado)
   );
   const encuestado = encuestadoFiltrado[0];
+  console.log("encuestado", encuestado);
 
   if (!encuestado) {
     const todosLosParrafos = document.querySelectorAll(
@@ -169,17 +167,17 @@ function MostrarDatosDeEncuestado() {
   }
   const valoresObjetoEncuestado = Object.values(encuestado);
 
-  for (let index = 0; index < 6; index++) {
+  for (let index = 0; index < valoresObjetoEncuestado.length; index++) {
     const parrafo = newListaParrafos[index];
     parrafo.textContent = valoresObjetoEncuestado[index];
   }
 
-  for (let index = 6; index < 9; index++) {
+  /* for (let index = 6; index < 9; index++) {
     const parrafoCanciones = newListaParrafosCanciones[index - 6];
 
     parrafoCanciones.textContent = `${
       valoresObjetoEncuestado[index]["nombreCancion" + numCancion]
     } - ${valoresObjetoEncuestado[index]["nombreArtista" + numCancion]}`;
     numCancion += 1;
-  }
+  } */
 }
